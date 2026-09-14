@@ -36,5 +36,5 @@ python generate.py --prompt "some text"
 - The difference between train loss and validation loss
 
 
-huh good day! :)
+
 
