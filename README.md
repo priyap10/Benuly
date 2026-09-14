@@ -25,8 +25,11 @@ Trains a character-level language model on a text file and generates new text in
 ## How to run
 
 python data/prepare.py
+
 python train.py
+
 python generate.py --prompt "some text"
+
 
 
 ## What I learned
