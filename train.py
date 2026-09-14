@@ -1,14 +1,4 @@
-"""
-train.py
 
-The actual training loop, written by hand — no HuggingFace Trainer,
-no PyTorch Lightning. This is the part you should be able to walk
-through step by step: how a batch is built, how loss is computed,
-how gradients update the weights.
-
-Usage:
-    python train.py
-"""
 
 import os
 import json
@@ -32,12 +22,7 @@ def load_data():
 
 
 def get_batch(split, train_data, val_data):
-    """Sample a random batch of (input, target) sequences.
-
-    For language modeling, the target at each position is simply the
-    NEXT token — so target[i] = input[i+1]. We build this by taking
-    two overlapping slices of the data, offset by one.
-    """
+    
     data = train_data if split == "train" else val_data
     ix = torch.randint(len(data) - config.BLOCK_SIZE, (config.BATCH_SIZE,))
     x = torch.stack([data[i:i + config.BLOCK_SIZE] for i in ix])
@@ -47,8 +32,6 @@ def get_batch(split, train_data, val_data):
 
 @torch.no_grad()
 def estimate_loss(model, train_data, val_data):
-    """Average loss over several batches, for both splits — smoother
-    signal than a single noisy batch's loss."""
     out = {}
     model.eval()
     for split in ["train", "val"]:

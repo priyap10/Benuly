@@ -1,11 +1,4 @@
-"""
-data/prepare.py
 
-Character-level tokenizer. Reads your raw text file, builds a vocabulary
-of unique characters, encodes the whole file as integers, and saves
-train/val splits as tensors, plus the vocab mapping (needed later to
-turn generated integers back into text).
-"""
 
 import os
 import json

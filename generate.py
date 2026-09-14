@@ -1,14 +1,3 @@
-"""
-generate.py
-
-Loads the trained checkpoint and vocab, then generates text starting
-from a prompt (or empty context). This is the fun payoff — see what
-Benuly actually learned from your chat.
-
-Usage:
-    python generate.py
-    python generate.py --prompt "Hey"
-"""
 
 import argparse
 import json
@@ -41,7 +30,7 @@ def load_model():
 def load_vocab():
     with open("data/vocab.json", "r", encoding="utf-8") as f:
         vocab = json.load(f)
-    # JSON keys are always strings, so itos needs its keys converted back to int
+    
     itos = {int(k): v for k, v in vocab["itos"].items()}
     stoi = vocab["stoi"]
     return stoi, itos
@@ -68,8 +57,7 @@ def main():
         context_ids = encode(args.prompt, stoi)
         idx = torch.tensor([context_ids], dtype=torch.long, device=device)
     else:
-        # No prompt: start from a single newline-ish/blank token if available,
-        # otherwise just token 0 — the model will find its own footing.
+        
         idx = torch.zeros((1, 1), dtype=torch.long, device=device)
 
     generated = model.generate(idx, max_new_tokens=args.max_new_tokens)
