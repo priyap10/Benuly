@@ -18,9 +18,9 @@ Trains a character-level language model on a text file and generates new text in
 ## Model
 
 - Parameters: 2,799,643 
-- Layers / heads / embedding size: [fill in]
-- Training data: [fill in]
-- train / val loss: started with 5.6678 / 5.6703 (currently ongoing) 
+- vocab : 283 unique characters 
+- train / val loss: started with 5.6678 / 5.6703
+- train / val loss: final ~ 1.18 / 1.57
 
 ## How to run
 
