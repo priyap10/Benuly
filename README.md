@@ -1,6 +1,6 @@
 # Benuly
 
-A small GPT-style language model built from scratch in PyTorch — no HuggingFace, no pre-built training loop. Built the attention mechanism, the transformer blocks, and the training loop, to actually learn how transformers work rather than just using one.
+A small GPT-style language model built from scratch in PyTorch, no HuggingFace, no pre-built training loop. Built the attention mechanism, the transformer blocks, and the training loop, to actually learn how transformers work rather than just using one.
 
 ## What it does
 
@@ -28,7 +28,10 @@ python data/prepare.py
 
 python train.py
 
-python generate.py --prompt "some text"
+python generate.py --prompt "hey"
+
+
+*might generate half formed sentences but fully formed words for sure
 
 
 
